@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation, Output, EventEmitter} from '@angular/core';
 import {NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import {NgForm} from '@angular/forms';
 import {Game} from "../models/Game";
 
 @Component({
@@ -16,17 +17,15 @@ export class CreategameComponent implements OnInit {
 
   newGame: Game = new Game();
 
-  active: boolean = true;
-
   constructor(private modalService: NgbModal) {
   }
 
   ngOnInit() {
   }
 
-  onSubmit()
+  onSubmit(form: NgForm)
   {
-    this.active = false;
+    form.reset();
     this.newGame.id = Math.floor((Math.random() * 1000000) + 1);
     this.gameCreated.emit({ game: this.newGame });
     this.modalRef.close();
