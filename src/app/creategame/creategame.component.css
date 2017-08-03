@@ -1,0 +1,23 @@
+ngb-modal-window{
+  opacity: 1 !important;
+}
+
+.modal-body a:hover{
+  background: transparent;
+}
+
+.thumbnail{
+  border-color: transparent;
+}
+
+.help-block{
+  color: red;
+}
+
+.error{
+  color: red;
+}
+
+.success{
+  color: green;
+}

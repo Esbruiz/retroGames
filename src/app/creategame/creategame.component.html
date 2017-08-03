@@ -1,0 +1,44 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <form action="#" #newGameForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="active">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" (click)="d(content)" aria-hidden="true">&times;</button>
+    <h3>Create New Game</h3>
+  </div>
+  <div class="modal-body">
+      <div class="col-md-12">
+        <a href="#" class="thumbnail">
+          <img [src]="newGame.thumbnail ? newGame.thumbnail : ''" style="width: 360px; height: 270px;">
+        </a>
+      </div>
+
+      <div class="form-group control-group" [class.error]="name.invalid && name.touched" [class.success]="name.valid">
+        <label class="control-label" for="name">Name</label>
+        <input type="text" name="name" [(ngModel)]="newGame.name" class="form-control" #name="ngModel" id="name" required="required">
+        <span class="help-block" *ngIf="name.invalid && name.touched">Name is required</span>
+      </div>
+
+      <div class="form-group control-group" [class.error]="description.invalid && description.touched" [class.success]="description.valid">
+        <label class="control-label" for="description">Description</label>
+        <input type="text" name="description" [(ngModel)]="newGame.description" class="form-control" #description="ngModel" id="description" required="required">
+        <span class="help-block" *ngIf="description.invalid && description.touched">Description is required</span>
+      </div>
+
+      <div class="form-group control-group" [class.error]="thumbnail.invalid && thumbnail.touched" [class.success]="thumbnail.valid">
+        <label class="control-label" for="thumbnail">Thumbnail</label>
+        <input type="text" name="thumbnail" [(ngModel)]="newGame.thumbnail" class="form-control" #thumbnail="ngModel" id="thumbnail" required="required">
+        <span class="help-block" *ngIf="thumbnail.invalid && thumbnail.touched">Thumbnail is required</span>
+      </div>
+
+
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" (click)="c(content)">Close</a>
+    <button [disabled]="!newGameForm.valid" type="submit" class="btn btn-success">Save Game</button>
+  </div>
+  </form>
+</ng-template>
+
+
+<p><a class="btn btn-success btn-lg" href="#" (click)="open(content);" role="button">Create New Game &raquo;</a></p>
+
+

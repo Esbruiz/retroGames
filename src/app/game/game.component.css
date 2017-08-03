@@ -1,0 +1,8 @@
+li{
+  list-style: none;
+}
+
+li .thumbnail .caption p{
+  overflow-y: auto;
+  max-height: 200px;
+}
