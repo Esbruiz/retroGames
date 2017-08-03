@@ -1,4 +1,4 @@
-<ng-template #content let-c="close" let-d="dismiss">
+<ng-template #creategame let-c="close" let-d="dismiss">
   <form action="#" #newGameForm="ngForm" (ngSubmit)="onSubmit(newGameForm)">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" (click)="d(content)" aria-hidden="true">&times;</button>
@@ -19,7 +19,7 @@
 
       <div class="form-group control-group" [class.error]="description.invalid && description.touched" [class.success]="description.valid">
         <label class="control-label" for="description">Description</label>
-        <input type="text" name="description" [(ngModel)]="newGame.description" class="form-control" #description="ngModel" id="description" required="required">
+        <textarea name="description" [(ngModel)]="newGame.description" class="form-control" #description="ngModel" id="description" required="required"></textarea>
         <span class="help-block" *ngIf="description.invalid && description.touched">Description is required</span>
       </div>
 
@@ -29,16 +29,28 @@
         <span class="help-block" *ngIf="thumbnail.invalid && thumbnail.touched">Thumbnail is required</span>
       </div>
 
+    <div class="form-group control-group" [class.error]="images.invalid && images.touched" [class.success]="images.valid">
+      <label class="control-label" for="thumbnail">Game Images</label>
+
+      <div class="input-group">
+        <input type="text" name="images" [(ngModel)]="image" class="form-control" #images="ngModel" id="images" required="required">
+        <div class="input-group-addon"><a href="#" (click)="addImages(image);">+</a></div>
+      </div>
+      <ul>
+        <li *ngFor="let image of newGame.images">{{image}}</li>
+      </ul>
+    </div>
+
 
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn" (click)="c(content)">Close</a>
+    <a href="#" class="btn" (click)="c(creategame)">Close</a>
     <button [disabled]="!newGameForm.valid" type="submit" class="btn btn-success">Save Game</button>
   </div>
   </form>
 </ng-template>
 
 
-<p><a class="btn btn-success btn-lg" href="#" (click)="open(content);" role="button">Create New Game &raquo;</a></p>
+<p><a class="btn btn-success btn-lg" href="#" (click)="open(creategame);" role="button">Create New Game &raquo;</a></p>
 
 

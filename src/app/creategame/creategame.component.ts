@@ -15,13 +15,17 @@ export class CreategameComponent implements OnInit {
 
   private modalRef: NgbModalRef;
   newGame: Game = new Game();
+  image: string;
 
   constructor(private modalService: NgbModal) {
   }
 
   ngOnInit() {
+    this.newGame.images = [];
   }
-
+  addImages(images){
+    this.newGame.images.push(images);
+  }
   onSubmit(form: NgForm)
   {
     this.newGame.id = Math.floor((Math.random() * 1000000) + 1);

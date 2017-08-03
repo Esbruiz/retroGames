@@ -2,6 +2,24 @@ ngb-modal-window{
   opacity: 1 !important;
 }
 
+.input-group-addon a{
+  color: white !important;
+}
+
+.input-group-addon .a:hover{
+  color: white !important;
+}
+
+ul{
+  margin-top: 20px;
+}
+
+ul li{
+  overflow-x: auto;
+  max-width: 534px;
+  list-style: decimal;
+}
+
 .modal-body a:hover{
   background: transparent;
 }
