@@ -10,6 +10,7 @@ export class AppComponent {
 
   onGameCreated(event)
   {
+    console.log(event);
     this.games.push(event.game);
   }
   games: Game[] =[

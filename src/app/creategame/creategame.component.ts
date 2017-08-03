@@ -14,9 +14,7 @@ export class CreategameComponent implements OnInit {
   @Output() gameCreated = new EventEmitter();
 
   private modalRef: NgbModalRef;
-
   newGame: Game = new Game();
-
   constructor(private modalService: NgbModal) {
   }
 
@@ -25,9 +23,10 @@ export class CreategameComponent implements OnInit {
 
   onSubmit(form: NgForm)
   {
-    form.reset();
     this.newGame.id = Math.floor((Math.random() * 1000000) + 1);
     this.gameCreated.emit({ game: this.newGame });
+    this.newGame = new Game();
+    form.reset();
     this.modalRef.close();
   }
 
