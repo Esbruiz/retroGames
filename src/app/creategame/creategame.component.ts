@@ -15,6 +15,7 @@ export class CreategameComponent implements OnInit {
 
   private modalRef: NgbModalRef;
   newGame: Game = new Game();
+
   constructor(private modalService: NgbModal) {
   }
 
